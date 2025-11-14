@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'; 
 import userRouter from './src/routes/users.js';
+import booksRouter from './src/routes/books.js';
 
 
 dotenv.config();
@@ -11,7 +12,8 @@ const port = process.env.PORT || 9000;
 
 //middlewares
 app.use(express.json());
-app.use('/api',userRouter);
+app.use('/api', userRouter);
+app.use('/api', booksRouter);
 
 app.listen(port, () => console.log('Servidor ejecutandose ',port));
 
